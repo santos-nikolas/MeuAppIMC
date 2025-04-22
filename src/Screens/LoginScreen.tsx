@@ -2,20 +2,19 @@ import { Button, Text, TextInput, ScrollView, Alert } from "react-native";
 import React, { useState } from "react";
 
 import { useNavigation } from '@react-navigation/native';
-import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import type { RootStackParamList } from '../../App';
-
+import type { LoginScreenNavigationProp } from '../types/navigation';
 
 const Login = () => {
+    const navigation = useNavigation<LoginScreenNavigationProp>();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    // Aqui você pode adicionar a lógica de login, como autenticação com API
-    //console.log("Login button pressed");
+
     const handleLogin = () => {
         // Aqui você pode adicionar a lógica de autenticação
         // Por exemplo, verificar se o email e a senha estão corretos
-        if (email === "" && password === "123456") {
-            Alert.alert("Login bem-sucedido!");       
+        if (email === "example@email.com" && password === "123456") {
+            Alert.alert("Login bem-sucedido!");
+            navigation.navigate('Home'); // Navega para a tela Home       
         }
         else {
             Alert.alert("Email ou senha incorretos.");

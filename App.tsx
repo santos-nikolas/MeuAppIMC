@@ -1,9 +1,3 @@
-export type RootStackParamList = {
-  Login: undefined; // A tela "Login" não recebe parâmetros por enquanto
-  Home: undefined;  // A tela "Home" não recebe parâmetros
-  IMC: undefined;   // A tela "IMC" não recebe parâmetros
-};
-
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -11,31 +5,42 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginScreen from './src/Screens/LoginScreen';
 import HomeScreen from './src/Screens/HomeScreen';
 import IMCScreen from './src/Screens/IMCScreen';
+import CalculateScreen from './src/Screens/CalculatorScreen';
+import type { RootStackParamList } from './src/types/navigation'; // <-- Importa o tipo RootStackParamList
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 function App() {
-
   return (
-    <NavigationContainer> {/* <-- Abertura */}
-      <Stack.Navigator> {/* <-- Abertura */}
-        {/* Telas (<Stack.Screen>) virão aqui dentro */}
+    <NavigationContainer>
+      {/* Nenhum espaço ou texto aqui */}
+      <Stack.Navigator>
+        {/* Nenhum espaço ou texto aqui */}
         <Stack.Screen
           name="Login"
           component={LoginScreen}
           options={{ title: 'Login' }}
         />
+        {/* Nenhum espaço ou texto aqui ENTRE as telas */}
         <Stack.Screen
           name="Home"
           component={HomeScreen}
           options={{ title: 'Home' }}
         />
+        {/* Nenhum espaço ou texto aqui ENTRE as telas */}
         <Stack.Screen
           name="IMC"
           component={IMCScreen}
           options={{ title: 'IMC' }}
         />
-      </Stack.Navigator> {/* <-- FECHAMENTO OBRIGATÓRIO */}
-    </NavigationContainer> {/* <-- FECHAMENTO OBRIGATÓRIO */}
+        <Stack.Screen
+          name="Calculator"
+          component={CalculateScreen}
+          options={{ title: 'Calculator' }}
+        />
+        {/* Nenhum espaço ou texto aqui */}
+      </Stack.Navigator>
+      {/* Nenhum espaço ou texto aqui */}
+    </NavigationContainer>
   );
 }
 
